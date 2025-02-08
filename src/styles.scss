@@ -1,3 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
 @import 'main-styles';
 @import '../node_modules/bulma/bulma.scss';
+
+.has-text-primary{
+    color: #6f42c1 !important;
+}
+.button.is-primary {
+    background-color: $primary !important;
+    border-color: $primary !important;
+}
+
+.button.is-primary:hover {
+    background-color: darken($primary, 10%) !important;
+}
+
+.list-menu-item.is-active {
+    background-color: lighten($primary, 30%) !important;
+    color: white !important;
+}
+
+.list-menu-item:hover {
+    background-color: lighten($primary, 20%) !important;
+}

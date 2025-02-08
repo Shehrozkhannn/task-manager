@@ -3,10 +3,6 @@
 // Import Fonts (Lato and Nunito)
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700|Nunito:400,700');
 
-// $turquoise: #44ddd0;
-// $green: #27d7a1;
-// $light-green: #45f69e; 
-// $dark-green: rgb(0, 100, 80);
 
 $turquoise: #3aa7ff;  // Vibrant Blue  
 $green: #6f42c1;  // Electric Purple  
@@ -20,7 +16,9 @@ $family-sans-serif: "Nunito", sans-serif;
 $primary: $green;
 
 $link: $turquoise;
+@import "bulma";
 
+$link: $turquoise;
 
 // Update some of Bulma's component variables
 
