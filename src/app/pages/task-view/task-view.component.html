@@ -10,11 +10,8 @@
           <a class="list-menu-item is-active">
             <p>{{ 'List No 1' }}</p>
           </a>
-          <a class="list-menu-item">
-            <p>{{ 'List No 2' }}</p>
-          </a>
-          <a class="list-menu-item">
-            <p>{{ 'List No 3' }}</p>
+          <a class="list-menu-item" *ngFor="let list of lists">
+            <p>{{ list.title }}</p>
           </a>
         </div>
   
