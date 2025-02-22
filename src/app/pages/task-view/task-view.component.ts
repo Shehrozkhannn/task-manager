@@ -18,18 +18,18 @@ export class TaskViewComponent {
   constructor(private route: ActivatedRoute, private router: Router, private taskService: TasksService) { }
 
   ngOnInit() {
-    // this.route.params.subscribe(
-    //   (params: Params) => {
-    //     if (params.listId) {
-    //       this.selectedListId = params.listId;
-    //       this.taskService.getTasks(params.listId).subscribe((tasks: any[]) => {
-    //         this.tasks = tasks;
-    //       })
-    //     } else {
-    //       this.tasks = undefined;
-    //     }
-    //   }
-    // )
+    this.route.params.subscribe(
+      (params: Params) => {
+        if (params['listId']) {
+          this.selectedListId = params['listId'];
+          this.taskService.getTasks(params['listId']).subscribe((tasks:any) => {
+            this.tasks = tasks;
+          })
+        } else {
+          this.tasks = [];
+        }
+      }
+    )
 
     this.taskService.getLists().subscribe((lists: any) => {
       this.lists = lists;

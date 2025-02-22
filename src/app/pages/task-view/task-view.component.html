@@ -7,10 +7,7 @@
         </h1>  
 
         <div class="list-menu">
-          <a class="list-menu-item is-active">
-            <p>{{ 'List No 1' }}</p>
-          </a>
-          <a class="list-menu-item" *ngFor="let list of lists">
+          <a class="list-menu-item" *ngFor="let list of lists" [routerLink]="['/lists',list._id]" routerLinkActive="is-active">
             <p>{{ list.title }}</p>
           </a>
         </div>
@@ -24,14 +21,8 @@
             </h1>
 
             <!-- task elements  -->
-             <div class="task">
-              <p>This is something I have to do</p>
-             </div>
-             <div class="task">
-              <p>This is something I have to do</p>
-             </div>
-             <div class="task complete">
-              <p>This is something I have to do</p>
+             <div class="task" *ngFor="let task of tasks">
+              <p>{{ task.title }}</p>
              </div>
       </div>
     </div>
