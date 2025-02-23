@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TasksService } from '../../tasks.service';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { List } from '../../models/list.model';
 
 @Component({
   selector: 'app-new-list-popup',
@@ -10,14 +11,12 @@ import { RouterModule } from '@angular/router';
 })
 export class NewListPopupComponent {
 
-  constructor(private taskService: TasksService){
-
-  }
+  constructor(private taskService: TasksService, private router: Router){}
 
   createList(title:string){
-    this.taskService.createList(title).subscribe((res)=>{
+    this.taskService.createList(title).subscribe((res:List)=>{
       console.log(res)
-      
+      this.router.navigate(['/lists', res._id])
     })
   }
 }

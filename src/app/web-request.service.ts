@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +17,9 @@ export class WebRequestService {
     return this.http.get(`${this.ROOT_URL}/${url}`)
   }
 
-  post(url:string, payload:Object){
-    return this.http.post(`${this.ROOT_URL}/${url}`, payload);
-  }
+  post<T>(url: string, payload: Object): Observable<T> {
+    return this.http.post<T>(`${this.ROOT_URL}/${url}`, payload);
+}
 
   patch(url:string, payload:Object){
     return this.http.patch(`${this.ROOT_URL}/${url}`, payload);
