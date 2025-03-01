@@ -6,12 +6,8 @@ import { NewTaskPopupComponent } from './pages/new-task-popup/new-task-popup.com
 export const routes: Routes = [
     { path: '', redirectTo: '/lists', pathMatch: 'full' },
     { path: 'new-list', component: NewListPopupComponent },
-    // { path: 'edit-list/:listId', component: EditListComponent },
-    // { path: 'login', component: LoginPageComponent },
-    // { path: 'signup', component: SignupPageComponent },
     { path: 'lists', component: TaskViewComponent },
     { path: 'lists/:listId', component: TaskViewComponent },
     { path: 'lists/:listId/new-task', component: NewTaskPopupComponent },
-    // { path: 'lists/:listId/edit-task/:taskId', component: EditTaskComponent },
   ];
 

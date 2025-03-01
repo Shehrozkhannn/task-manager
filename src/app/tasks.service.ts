@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { WebRequestService } from './web-request.service';
 import { List } from './models/list.model';
 import { Observable } from 'rxjs';
+import { Task } from './models/task.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,8 @@ export class TasksService {
     return this.webService.post<List>('lists', {title});
   }
 
-  createTask(title: string){
-    // return this.webService.post(`lists`)
+  createTask(title: string, listId: string): Observable<Task>{
+    return this.webService.post(`lists/${listId}/tasks`, {title})
   }
 
   getLists(){
@@ -25,5 +26,11 @@ export class TasksService {
 
   getTasks(listId: string){
     return this.webService.get(`lists/${listId}/tasks`)
+  }
+
+  complete(task: Task){
+    return this.webService.patch(`lists/${task._listId}/tasks/${task._id}`,{
+      completed: !task.completed
+    })
   }
 }

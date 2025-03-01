@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router, Params, RouterModule } from '@angular/router';
 import { TasksService } from '../../tasks.service';
 import { CommonModule } from '@angular/common';
+import { Task } from '../../models/task.model';
+import { List } from '../../models/list.model';
 
 @Component({
   selector: 'app-task-view',
@@ -10,8 +12,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './task-view.component.scss'
 })
 export class TaskViewComponent {
-  lists!: any[];
-  tasks!: any[];
+  lists!: List[];
+  tasks!: Task[];
 
   selectedListId!: string;
 
@@ -37,8 +39,11 @@ export class TaskViewComponent {
     
   }
 
-  onTaskClick(task: any) {
-
+  onTaskClick(task: Task) {
+    this.taskService.complete(task).subscribe(()=> {
+      console.log('Updated')
+      task.completed = !task.completed;
+    })
   }
 
   onDeleteListClick() {
