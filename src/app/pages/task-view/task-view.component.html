@@ -27,6 +27,10 @@
           <p>{{ task.title }}</p>
         </div>
 
+        <div *ngIf="selectedListId && !tasks.length">
+          <h3 class="empty-state-text">There are no tasks in the List Please add.</h3>
+        </div>
+
         <button routerLink="./new-task" class="circle-add-button button is-primary has-text-white"
           style="font-size: 22px;">
           +
