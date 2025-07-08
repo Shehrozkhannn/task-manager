@@ -14,6 +14,7 @@ export class LoginPageComponent {
   }
 
   login(email:string,password:string){
+    debugger
     this.authService.login(email,password).subscribe((res)=>{
       console.log(res)
     })
